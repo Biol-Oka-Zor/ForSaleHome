@@ -58,22 +58,22 @@ public class MyBot extends TelegramLongPollingBot {
                 execute(myBotService.help(chatId));
             }
 
-            // -------- ABOUT --------
+
             else if (text.equals("ℹ Bot haqida") || text.equals("/about")) {
                 execute(myBotService.about(chatId));
             }
 
-            // -------- NEARLY --------
+
             else if (text.equals("📍 Yaqin uylar") || text.equals("/nearly")) {
                 execute(myBotService.nearly(chatId));
             }
 
-            // -------- NEW --------
+
             else if (text.equals("🆕 Yangi uylar") || text.equals("/new")) {
                 execute(myBotService.newHomes(chatId));
             }
 
-            // -------- BACK --------
+
             else if (text.equals("🔙 Orqaga") || text.equals("/back")) {
                 execute(myBotService.backToMain(chatId));
             }

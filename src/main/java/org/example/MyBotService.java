@@ -10,11 +10,12 @@ import java.util.List;
 
 public class MyBotService {
 
-    // START menyu – til tanlash
+
     public SendMessage startMenu(Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText("Tilni tanlang / Choose language:");
+
 
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
         markup.setResizeKeyboard(true);
@@ -39,22 +40,22 @@ public class MyBotService {
         return message;
     }
 
-    // Uzbekistoncha asosiy menyu
+
     public SendMessage uzbekMain(Long chatId) {
         return mainMenu(chatId, "Kerakli bo‘limni tanlang:");
     }
 
-    // Ruscha menyu
+
     public SendMessage russianMain(Long chatId) {
         return mainMenu(chatId, "Выберите раздел:");
     }
 
-    // Inglizcha menyu
+
     public SendMessage englishMain(Long chatId) {
         return mainMenu(chatId, "Choose an option:");
     }
 
-    // Asosiy menyu yordamchi
+
     private SendMessage mainMenu(Long chatId, String text) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -75,7 +76,7 @@ public class MyBotService {
         return message;
     }
 
-    // Sotib olish bo‘limi menyusi
+
     public SendMessage buyMenu(Long chatId) {
         SendMessage msg = new SendMessage();
         msg.setChatId(chatId);
@@ -102,7 +103,6 @@ public class MyBotService {
         return msg;
     }
 
-    // ------------ KOMANDA JAVABLARI --------------
 
     public SendMessage listHomes(Long chatId) {
         return simple(chatId, "📋 Mavjud uylar ro‘yxati:\n1. 3 xonali ...\n2. 2 xonali ...\n/back");
@@ -140,7 +140,7 @@ public class MyBotService {
         return uzbekMain(chatId);
     }
 
-    // ------------ YORDAMCHI FUNKSIYA --------------
+
 
     private SendMessage simple(Long chatId, String text) {
         SendMessage m = new SendMessage();
@@ -149,7 +149,7 @@ public class MyBotService {
         return m;
     }
 
-    // Tugma yaratish yordamchi
+
     private KeyboardRow singleButtonRow(String text) {
         KeyboardRow row = new KeyboardRow();
         row.add(new KeyboardButton(text));
