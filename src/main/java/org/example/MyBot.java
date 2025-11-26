@@ -11,111 +11,120 @@ public class MyBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
 
-        if (!update.hasMessage() || !update.getMessage().hasText()) return;
+        if (update.hasMessage() && update.getMessage().hasText()) {
 
-        long chatId = update.getMessage().getChatId();
-        String text = update.getMessage().getText();
+            long chatId = update.getMessage().getChatId();
+            String text = update.getMessage().getText();
 
-        try {
+
             if (text.equals("/start")) {
-                execute(myBotService.startMenu(chatId));
+                try {
+                    execute(myBotService.startMenu(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if (text.equals("🇺🇿 O'zbekcha")){
+                try {
+                    execute(myBotService.buyMenu(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("🇺🇿 O'zbekcha")) {
-                execute(myBotService.uzbekMain(chatId));
-            } else if (text.equals("🇷🇺 Русский")) {
-                execute(myBotService.russianMain(chatId));
-            } else if (text.equals("🇬🇧 English")) {
-                execute(myBotService.englishMain(chatId));
+            if (text.equals("🇷🇺 Русский")){
+                try {
+                    execute(myBotService.buyMenu(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            // SOTIB OLISH
-            else if (text.equals("🏠 Sotib olish") || text.equals("/buy")) {
-                execute(myBotService.buyMenu(chatId));
+            if (text.equals("🇬🇧 English")){
+                try {
+                    execute(myBotService.buyMenu(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("🏘 Uylar ro'yxati") || text.equals("/list")) {
-                execute(myBotService.listHomes(chatId));
+            if (text.equals("🏘 Uylar ro'yxati")) {
+                try {
+                    execute(myBotService.photo1(chatId));
+                    execute(myBotService.photo2(chatId));
+                    execute(myBotService.photo3(chatId));
+                    execute(myBotService.photo4(chatId));
+                    execute(myBotService.photo5(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("📞 Kontaktlar") || text.equals("/contacts")) {
-                execute(myBotService.contacts(chatId));
+            if (text.equals("📞 Kontaktlar")) {
+                try {
+                    execute(myBotService.contacts(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("⭐ Yoqtirgan uylar") || text.equals("/favorites")) {
-                execute(myBotService.favorites(chatId));
+            if (text.equals("⭐ Yoqtirgan uylar")) {
+                try {
+                    execute(myBotService.favorites(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("💳 Hissa qo'shish") || text.equals("/donate")) {
-                execute(myBotService.donate(chatId));
+            if (text.equals("💳 Hissa qo'shish")) {
+                try {
+                    execute(myBotService.donate(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("❓ Yordam") || text.equals("/help")) {
-                execute(myBotService.help(chatId));
+            if (text.equals("❓ Yordam")) {
+                try {
+                    execute(myBotService.help(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("ℹ Bot haqida") || text.equals("/about")) {
-                execute(myBotService.about(chatId));
+            if (text.equals("ℹ Bot haqida")) {
+                try {
+                    execute(myBotService.about(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("📍 Yaqin uylar") || text.equals("/nearly")) {
-                execute(myBotService.nearly(chatId));
+            if (text.equals("📍 Yaqin uylar")) {
+                try {
+                    execute(myBotService.nearly(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-            else if (text.equals("🆕 Yangi uylar") || text.equals("/new")) {
-                execute(myBotService.newHomes(chatId));
+            if (text.equals("🆕 Yangi uylar")) {
+                try {
+                    execute(myBotService.newHomes(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
 
-
-            else if (text.equals("🏚 Sotish") || text.equals("/sell")) {
-                execute(myBotService.sellMenu(chatId));
+            if (text.equals("🔙 Orqaga")) {
+                try {
+                    execute(myBotService.backToMain(chatId));
+                } catch (TelegramApiException e) {
+                    throw new RuntimeException(e);
+                }
             }
-
-            else if (text.equals("📝 E'lon berish") || text.equals("/report")) {
-                execute(myBotService.sellReport(chatId));
-            }
-
-            else if (text.equals("📋 Sotiladigan uylar") || text.equals("/sell_list")) {
-                execute(myBotService.sellList(chatId));
-            }
-
-            else if (text.equals("📞 Sotuvchi kontaktlari") || text.equals("/sell_contacts")) {
-                execute(myBotService.sellContacts(chatId));
-            }
-
-            else if (text.equals("⭐ Mening e'lonlarim") || text.equals("/sell_favorites")) {
-                execute(myBotService.sellFavorites(chatId));
-            }
-
-            else if (text.equals("💳 To'lov qoidalari") || text.equals("/sell_donate")) {
-                execute(myBotService.sellDonate(chatId));
-            }
-
-            else if (text.equals("❓ Sotish bo‘yicha yordam") || text.equals("/sell_help")) {
-                execute(myBotService.sellHelp(chatId));
-            }
-
-            else if (text.equals("ℹ Sotish haqida") || text.equals("/sell_about")) {
-                execute(myBotService.sellAbout(chatId));
-            }
-
-            else if (text.equals("📍 Sizga yaqin sotuvchilar") || text.equals("/sell_nearly")) {
-                execute(myBotService.sellNearly(chatId));
-            }
-
-            else if (text.equals("🆕 Yangi e'lonlar") || text.equals("/sell_new")) {
-                execute(myBotService.sellNew(chatId));
-            }
-
-            else if (text.equals("🔙 Orqaga") || text.equals("/back")) {
-                execute(myBotService.backToMain(chatId));
-            }
-
-        } catch (TelegramApiException e) {
-            throw new RuntimeException(e);
         }
     }
-
     @Override
     public String getBotUsername() {
         return "@for_sale_home_bot";
@@ -126,3 +135,4 @@ public class MyBot extends TelegramLongPollingBot {
         return "8282031759:AAF-8pwAw_kvpVQGUOYAwXV-pXzc1nizyP0";
     }
 }
+
