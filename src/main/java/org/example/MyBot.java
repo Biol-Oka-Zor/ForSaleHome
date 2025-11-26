@@ -29,7 +29,7 @@ public class MyBot extends TelegramLongPollingBot {
                 execute(myBotService.englishMain(chatId));
             }
 
-
+            // SOTIB OLISH
             else if (text.equals("🏠 Sotib olish") || text.equals("/buy")) {
                 execute(myBotService.buyMenu(chatId));
             }
@@ -38,41 +38,74 @@ public class MyBot extends TelegramLongPollingBot {
                 execute(myBotService.listHomes(chatId));
             }
 
-
             else if (text.equals("📞 Kontaktlar") || text.equals("/contacts")) {
                 execute(myBotService.contacts(chatId));
             }
-
 
             else if (text.equals("⭐ Yoqtirgan uylar") || text.equals("/favorites")) {
                 execute(myBotService.favorites(chatId));
             }
 
-
             else if (text.equals("💳 Hissa qo'shish") || text.equals("/donate")) {
                 execute(myBotService.donate(chatId));
             }
-
 
             else if (text.equals("❓ Yordam") || text.equals("/help")) {
                 execute(myBotService.help(chatId));
             }
 
-
             else if (text.equals("ℹ Bot haqida") || text.equals("/about")) {
                 execute(myBotService.about(chatId));
             }
-
 
             else if (text.equals("📍 Yaqin uylar") || text.equals("/nearly")) {
                 execute(myBotService.nearly(chatId));
             }
 
-
             else if (text.equals("🆕 Yangi uylar") || text.equals("/new")) {
                 execute(myBotService.newHomes(chatId));
             }
 
+
+            else if (text.equals("🏚 Sotish") || text.equals("/sell")) {
+                execute(myBotService.sellMenu(chatId));
+            }
+
+            else if (text.equals("📝 E'lon berish") || text.equals("/report")) {
+                execute(myBotService.sellReport(chatId));
+            }
+
+            else if (text.equals("📋 Sotiladigan uylar") || text.equals("/sell_list")) {
+                execute(myBotService.sellList(chatId));
+            }
+
+            else if (text.equals("📞 Sotuvchi kontaktlari") || text.equals("/sell_contacts")) {
+                execute(myBotService.sellContacts(chatId));
+            }
+
+            else if (text.equals("⭐ Mening e'lonlarim") || text.equals("/sell_favorites")) {
+                execute(myBotService.sellFavorites(chatId));
+            }
+
+            else if (text.equals("💳 To'lov qoidalari") || text.equals("/sell_donate")) {
+                execute(myBotService.sellDonate(chatId));
+            }
+
+            else if (text.equals("❓ Sotish bo‘yicha yordam") || text.equals("/sell_help")) {
+                execute(myBotService.sellHelp(chatId));
+            }
+
+            else if (text.equals("ℹ Sotish haqida") || text.equals("/sell_about")) {
+                execute(myBotService.sellAbout(chatId));
+            }
+
+            else if (text.equals("📍 Sizga yaqin sotuvchilar") || text.equals("/sell_nearly")) {
+                execute(myBotService.sellNearly(chatId));
+            }
+
+            else if (text.equals("🆕 Yangi e'lonlar") || text.equals("/sell_new")) {
+                execute(myBotService.sellNew(chatId));
+            }
 
             else if (text.equals("🔙 Orqaga") || text.equals("/back")) {
                 execute(myBotService.backToMain(chatId));
@@ -93,4 +126,3 @@ public class MyBot extends TelegramLongPollingBot {
         return "8282031759:AAF-8pwAw_kvpVQGUOYAwXV-pXzc1nizyP0";
     }
 }
-

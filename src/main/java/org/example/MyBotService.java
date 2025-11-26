@@ -10,12 +10,10 @@ import java.util.List;
 
 public class MyBotService {
 
-
     public SendMessage startMenu(Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText("Tilni tanlang / Choose language:");
-
 
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
         markup.setResizeKeyboard(true);
@@ -40,21 +38,17 @@ public class MyBotService {
         return message;
     }
 
-
     public SendMessage uzbekMain(Long chatId) {
         return mainMenu(chatId, "Kerakli bo‘limni tanlang:");
     }
-
 
     public SendMessage russianMain(Long chatId) {
         return mainMenu(chatId, "Выберите раздел:");
     }
 
-
     public SendMessage englishMain(Long chatId) {
         return mainMenu(chatId, "Choose an option:");
     }
-
 
     private SendMessage mainMenu(Long chatId, String text) {
         SendMessage message = new SendMessage();
@@ -68,6 +62,7 @@ public class MyBotService {
 
         KeyboardRow r1 = new KeyboardRow();
         r1.add(new KeyboardButton("🏠 Sotib olish"));
+        r1.add(new KeyboardButton("🏚 Sotish"));
         rows.add(r1);
 
         markup.setKeyboard(rows);
@@ -75,7 +70,6 @@ public class MyBotService {
 
         return message;
     }
-
 
     public SendMessage buyMenu(Long chatId) {
         SendMessage msg = new SendMessage();
@@ -103,7 +97,6 @@ public class MyBotService {
         return msg;
     }
 
-
     public SendMessage listHomes(Long chatId) {
         return simple(chatId, "📋 Mavjud uylar ro‘yxati:\n1. 3 xonali ...\n2. 2 xonali ...\n/back");
     }
@@ -113,34 +106,94 @@ public class MyBotService {
     }
 
     public SendMessage favorites(Long chatId) {
-        return simple(chatId, "⭐ Yoqtirgan uylar ro‘yxati hozircha bo‘sh.\n/back");
+        return simple(chatId, "⭐ Yoqtirgan uylar ro‘yxati bo‘sh.\n/back");
     }
 
     public SendMessage donate(Long chatId) {
-        return simple(chatId, "💳 Karta raqam: 8600 1234 5678 9012\n/back");
+        return simple(chatId, "💳 Karta: 8600 1234 5678 9012\n/back");
     }
 
     public SendMessage help(Long chatId) {
-        return simple(chatId, "❓ Yordam bo‘limi:\nBuyruqlar ro‘yxati ...\n/back");
+        return simple(chatId, "❓ Yordam bo‘limi.\n/back");
     }
 
     public SendMessage about(Long chatId) {
-        return simple(chatId, "ℹ️ Bot haqida: Uy sotib olishga yordam beruvchi bot.\n/back");
+        return simple(chatId, "ℹ Bot haqida.\n/back");
     }
 
     public SendMessage nearly(Long chatId) {
-        return simple(chatId, "📍 Sizga yaqin uylar:\n- Chilonzor\n- Sergeli\n/back");
+        return simple(chatId, "📍 Yaqin uylar:\n- Chilonzor\n- Sergeli\n/back");
     }
 
     public SendMessage newHomes(Long chatId) {
-        return simple(chatId, "🆕 Yangi uylar:\n1. Yangiyo‘l ...\n2. Yunusobod ...\n/back");
+        return simple(chatId, "🆕 Yangi uylar.\n/back");
+    }
+
+    public SendMessage sellMenu(Long chatId) {
+        SendMessage msg = new SendMessage();
+        msg.setChatId(chatId);
+        msg.setText("🏚 Sotish bo‘limi:");
+
+        ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
+        markup.setResizeKeyboard(true);
+
+        List<KeyboardRow> rows = new ArrayList<>();
+        rows.add(singleButtonRow("📝 E'lon berish"));
+        rows.add(singleButtonRow("📋 Sotiladigan uylar"));
+        rows.add(singleButtonRow("📞 Sotuvchi kontaktlari"));
+        rows.add(singleButtonRow("⭐ Mening e'lonlarim"));
+        rows.add(singleButtonRow("💳 Hissa qo'shish"));
+        rows.add(singleButtonRow("❓ Sotish bo‘yicha yordam"));
+        rows.add(singleButtonRow("ℹ Sotish haqida"));
+        rows.add(singleButtonRow("📍 Yaqin uylar"));
+        rows.add(singleButtonRow("🆕 Yangi e'lonlar"));
+        rows.add(singleButtonRow("🔙 Orqaga"));
+
+        markup.setKeyboard(rows);
+        msg.setReplyMarkup(markup);
+
+        return msg;
+    }
+
+    public SendMessage sellReport(Long chatId) {
+        return simple(chatId, "📝 E'lon berish uchun ma'lumot yuboring.\n/back");
+    }
+
+    public SendMessage sellList(Long chatId) {
+        return simple(chatId, "📋 Mavjud uylar ro‘yxati:\n1. 3 xonali ...\n2. 2 xonali ...\n/back");
+    }
+
+    public SendMessage sellContacts(Long chatId) {
+        return simple(chatId, "📞 Kontaktlar:\n+998 90 123 45 67\n/back");
+    }
+
+    public SendMessage sellFavorites(Long chatId) {
+        return simple(chatId, "⭐ Sizning e'lonlaringiz yo‘q.\n/back");
+    }
+
+    public SendMessage sellDonate(Long chatId) {
+        return simple(chatId, "💳 Karta: 8600 1234 5678 9012\n/back");
+    }
+
+    public SendMessage sellHelp(Long chatId) {
+        return simple(chatId, "❓ Sotish bo‘yicha yordam.\n/back");
+    }
+
+    public SendMessage sellAbout(Long chatId) {
+        return simple(chatId, "ℹ Sotish haqida.\n/back");
+    }
+
+    public SendMessage sellNearly(Long chatId) {
+        return simple(chatId, "📍 Yaqin uylar:\n- Chilonzor\n- Sergeli\n/back");
+    }
+
+    public SendMessage sellNew(Long chatId) {
+        return simple(chatId, "🆕 Yangi e'lonlar.\n/back");
     }
 
     public SendMessage backToMain(Long chatId) {
         return uzbekMain(chatId);
     }
-
-
 
     private SendMessage simple(Long chatId, String text) {
         SendMessage m = new SendMessage();
@@ -148,7 +201,6 @@ public class MyBotService {
         m.setText(text);
         return m;
     }
-
 
     private KeyboardRow singleButtonRow(String text) {
         KeyboardRow row = new KeyboardRow();
