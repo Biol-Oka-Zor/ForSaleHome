@@ -179,10 +179,6 @@ public class MyBotService {
         return simple(chatId, "⭐ Yoqtirgan uylar ro‘yxati bo‘sh.\n/back");
     }
 
-    public SendMessage donate(Long chatId) {
-        return simple(chatId, "💳 Karta: 8600 1234 5678 9012\n/back");
-    }
-
     public SendMessage help(Long chatId) {
         return simple(chatId, "❓ Yordam bo‘limi.\n/back");
     }
@@ -242,7 +238,7 @@ public class MyBotService {
     }
 
     public SendMessage sellDonate(Long chatId) {
-        return simple(chatId, "💳 Karta: 8600 1234 5678 9012\n/back");
+        return simple(chatId, "💳 Karta: 5614 6835 8975 7350\n/back");
     }
 
     public SendMessage sellHelp(Long chatId) {
