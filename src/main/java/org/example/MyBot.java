@@ -31,6 +31,11 @@ public class MyBot extends TelegramLongPollingBot {
                 send(myBotService.photo3(chatId));
                 send(myBotService.photo4(chatId));
                 send(myBotService.photo5(chatId));
+                send(myBotService.photo6(chatId));
+                send(myBotService.photo7(chatId));
+                send(myBotService.photo8(chatId));
+                send(myBotService.photo9(chatId));
+                send(myBotService.photo10(chatId));
             }
 
             if (text.equals("📞 Kontaktlar")) send(myBotService.contacts(chatId));

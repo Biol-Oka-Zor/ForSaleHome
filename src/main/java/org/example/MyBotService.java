@@ -79,6 +79,71 @@ public class MyBotService {
         return p;
     }
 
+    public SendPhoto photo6(Long chatId) {
+        SendPhoto p = new SendPhoto();
+        p.setChatId(chatId);
+        p.setPhoto(new InputFile("https://t.me/forsale_home/33"));
+        p.setCaption(
+                "🏠 Narx: 320.000$\n" +
+                        "📏 Sotix: 8\n" +
+                        "📞 Tel: 94 444 44 44\n" +
+                        "📍 Lokatsiya: ..."
+        );
+        return p;
+    }
+
+    public SendPhoto photo7(Long chatId) {
+        SendPhoto p = new SendPhoto();
+        p.setChatId(chatId);
+        p.setPhoto(new InputFile("https://t.me/forsale_home/34"));
+        p.setCaption(
+                "🏠 Narx: 300.000$\n" +
+                        "📏 Sotix: 7\n" +
+                        "📞 Tel: 94 444 44 44\n" +
+                        "📍 Lokatsiya: ..."
+        );
+        return p;
+    }
+
+    public SendPhoto photo8(Long chatId) {
+        SendPhoto p = new SendPhoto();
+        p.setChatId(chatId);
+        p.setPhoto(new InputFile("https://t.me/forsale_home/35"));
+        p.setCaption(
+                "🏠 Narx: 450.000$\n" +
+                        "📏 Sotix: 12\n" +
+                        "📞 Tel: 94 444 44 44\n" +
+                        "📍 Lokatsiya: ..."
+        );
+        return p;
+    }
+
+    public SendPhoto photo9(Long chatId) {
+        SendPhoto p = new SendPhoto();
+        p.setChatId(chatId);
+        p.setPhoto(new InputFile("https://t.me/forsale_home/36"));
+        p.setCaption(
+                "🏠 Narx: 100.000$\n" +
+                        "📏 Sotix: 4\n" +
+                        "📞 Tel: 94 444 44 44\n" +
+                        "📍 Lokatsiya: ..."
+        );
+        return p;
+    }
+
+    public SendPhoto photo10(Long chatId) {
+        SendPhoto p = new SendPhoto();
+        p.setChatId(chatId);
+        p.setPhoto(new InputFile("https://t.me/forsale_home/37"));
+        p.setCaption(
+                "🏠 Narx: 900.000$\n" +
+                        "📏 Sotix: 10\n" +
+                        "📞 Tel: 94 444 44 44\n" +
+                        "📍 Lokatsiya: ..."
+        );
+        return p;
+    }
+
 
     public SendMessage startMenu(Long chatId) {
         SendMessage message = new SendMessage();
